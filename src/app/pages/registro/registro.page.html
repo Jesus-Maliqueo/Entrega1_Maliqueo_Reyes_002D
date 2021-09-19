@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()" color="warning">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-avatar>
+        <ion-img src="/assets/logo.png"></ion-img>
+      </ion-avatar>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+
+      
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo">
+  <form #formulario="ngForm" (ngSubmit) ="onSubmit()" >
+    <!--
+    <ion-list-header>
+      <ion-label>Formulario Válido: {{formulario.valid}} </ion-label>
+    </ion-list-header>
+        -->
+    <ion-item>
+      <ion-label>Nombre de Usuario: </ion-label>
+      <ion-input type="nombre" placeholder="Nombre de usuario"
+                 name="nombre" [(ngModel)]= "usuario.nombre"
+                 required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Género</ion-label>
+      <ion-select placeholder="Select One">
+        <ion-select-option value="f">Mujer</ion-select-option>
+        <ion-select-option value="m">Hombre</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Region</ion-label>
+      <ion-select placeholder="Select One">
+        <ion-select-option value="I">Region de Tarapaca</ion-select-option>
+        <ion-select-option value="II">Region de Antofagasta</ion-select-option>
+        <ion-select-option value="III">Region de Atacama</ion-select-option>
+        <ion-select-option value="IV">Region de Coquimbo</ion-select-option>
+        <ion-select-option value="V">Region de Valparaiso</ion-select-option>
+        <ion-select-option value="VI">Region del Libertador General Bernardo O'Higgins</ion-select-option>
+        <ion-select-option value="VII">Region del Maule</ion-select-option>
+        <ion-select-option value="VIII">Region del Biobio</ion-select-option>
+        <ion-select-option value="IX">Region de la Araucania</ion-select-option>
+        <ion-select-option value="X">Region de los Lagos</ion-select-option>
+        <ion-select-option value="XI">Región Aysén del General Carlos Ibáñez del Campo</ion-select-option>
+        <ion-select-option value="XII">Región de Magallanes</ion-select-option>
+        <ion-select-option value="RM">Región Metropolitana de Santiago</ion-select-option>
+        <ion-select-option value="XIV">Región de Los Ríos</ion-select-option>
+        <ion-select-option value="XV">Región de Arica y Parinacota</ion-select-option>
+        <ion-select-option value="XVI">Región de Ñuble</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email: </ion-label>
+      <ion-input type="email" placeholder="Email"
+                 name="email" [(ngModel)]= "usuario.email"
+                 pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                 required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password: </ion-label>
+      <ion-input type="password" placeholder="Contraseña"
+                 name="password" [(ngModel)]= "usuario.password"
+                 required>
+      </ion-input>
+    </ion-item>
+
+    <ion-button [disabled] ="formulario.invalid"
+        type="submit" expand="block" routerLink="/inicio" color="warning">
+      Enviar Datos
+    </ion-button>
+
+
+  </form>
+</ion-content>
